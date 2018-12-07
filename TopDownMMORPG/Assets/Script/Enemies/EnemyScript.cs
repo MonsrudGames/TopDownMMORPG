@@ -8,7 +8,9 @@ public class EnemyScript : MonoBehaviour
 
     Rigidbody2D rb;
 
-    float Health = 100;
+    public float Health = 100;
+
+    public bool CanDie;
 
     private void Start()
     {
@@ -17,21 +19,28 @@ public class EnemyScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Health <= 0f)
+        if(Health <= 0f && CanDie)
         {
             GameObject.Destroy(this.gameObject);
         }
     }
 
-    public void GetDamaged(GameObject DamageDeltBy, float Time)
+    public void GetHit(GameObject DamageDeltBy, float time)
     {
-        StartCoroutine(DamageColorChange());
-        AddForce(DamageDeltBy);
-        TakeDamage();
+        StartCoroutine(GetDamaged(DamageDeltBy, time));
     }
 
-    void TakeDamage()
+    IEnumerator GetDamaged(GameObject DamageDeltBy,float time)
     {
+        yield return new WaitForSeconds(time);
+        StartCoroutine(DamageColorChange());
+        AddForce(DamageDeltBy);
+        StartCoroutine(TakeDamage(0.2f));
+    }
+
+    IEnumerator TakeDamage(float time)
+    {
+        yield return new WaitForSeconds(time);
         Health -= 34f;
     }
 
@@ -57,7 +66,7 @@ public class EnemyScript : MonoBehaviour
         if (ForceDir.y < 0)
             ForceDir = new Vector2(ForceDir.x, -1);
 
-        ForceDir *= 10f;
+        ForceDir *= 50f;
 
         rb.AddForce(ForceDir, ForceMode2D.Impulse);
     }

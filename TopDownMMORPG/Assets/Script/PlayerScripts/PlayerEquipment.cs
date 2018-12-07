@@ -83,12 +83,33 @@ public class PlayerEquipment : MonoBehaviour
             if(enemy != null)
             {
                 float TimeUntilDamageApply = 0;
-                
-                Mathf.an
 
-                Debug.Log("Angle = " + angle);
+                Vector3 vec1 = enemy.transform.position;
+                Vector3 vec2 = this.transform.position;
+                Vector3 vec3 = this.transform.position + new Vector3(10f, 0);
 
-                enemy.GetComponent<EnemyScript>().GetDamaged(this.gameObject, TimeUntilDamageApply);
+                float lenghtA = Mathf.Sqrt(Mathf.Pow(vec2.x - vec1.x, 2) + Mathf.Pow(vec2.y - vec1.y, 2));
+                float lenghtB = Mathf.Sqrt(Mathf.Pow(vec3.x - vec2.x, 2) + Mathf.Pow(vec3.y - vec2.y, 2));
+                float lenghtC = Mathf.Sqrt(Mathf.Pow(vec3.x - vec1.x, 2) + Mathf.Pow(vec3.y - vec1.y, 2));
+
+                float calc = ((lenghtA * lenghtA) + (lenghtB * lenghtB) - (lenghtC * lenghtC)) / (2 * lenghtA * lenghtB);
+
+                float angle =  Mathf.Acos(calc) * Mathf.Rad2Deg;
+
+                if(enemy.transform.position.y > this.transform.position.y)
+                {
+                    angle -= angle * 2f; 
+                }
+
+                angle -= 180f;
+
+                angle = -angle;
+
+                Debug.Log("Angle = " + angle + " | on Entety: " + enemy.transform.name);
+
+                TimeUntilDamageApply = (0.0020f * angle);
+
+                enemy.GetComponent<EnemyScript>().GetHit(this.gameObject, TimeUntilDamageApply);
             }
         }
     }
