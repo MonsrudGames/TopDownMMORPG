@@ -82,7 +82,13 @@ public class PlayerEquipment : MonoBehaviour
         {
             if(enemy != null)
             {
-                enemy.GetComponent<EnemyScript>().GetDamaged(this.gameObject);
+                float TimeUntilDamageApply = 0;
+                
+                Mathf.an
+
+                Debug.Log("Angle = " + angle);
+
+                enemy.GetComponent<EnemyScript>().GetDamaged(this.gameObject, TimeUntilDamageApply);
             }
         }
     }

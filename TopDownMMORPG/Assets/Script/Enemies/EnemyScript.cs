@@ -23,7 +23,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    public void GetDamaged(GameObject DamageDeltBy)
+    public void GetDamaged(GameObject DamageDeltBy, float Time)
     {
         StartCoroutine(DamageColorChange());
         AddForce(DamageDeltBy);
