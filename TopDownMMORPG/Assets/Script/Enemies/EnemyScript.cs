@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -9,6 +10,7 @@ public class EnemyScript : MonoBehaviour
     Rigidbody2D rb;
 
     public float Health = 100;
+    public GameObject _HealthSlider;
 
     public bool CanDie;
 
@@ -19,8 +21,12 @@ public class EnemyScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        _HealthSlider.GetComponent<Slider>().SetValueWithoutNotify(Health);
+
         if(Health <= 0f && CanDie)
         {
+            GameObject.Destroy(_HealthSlider.gameObject);
             GameObject.Destroy(this.gameObject);
         }
     }
