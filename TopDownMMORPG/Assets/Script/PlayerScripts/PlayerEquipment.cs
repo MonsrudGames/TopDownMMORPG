@@ -41,11 +41,11 @@ public class PlayerEquipment : MonoBehaviour
 
         foreach (GameObject equipment in Equipments)
         {
-            if(equipment != ActiveEquipment)
+            if(equipment != ActiveEquipment && equipment.activeSelf == true)
             {
                 equipment.SetActive(false);
             }
-            else
+            else if (equipment.activeSelf == true)
             {
                 equipment.SetActive(true);
             }
