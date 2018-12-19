@@ -41,13 +41,15 @@ public class PlayerEquipment : MonoBehaviour
 
         foreach (GameObject equipment in Equipments)
         {
-            if(equipment != ActiveEquipment && equipment.activeSelf == true)
-            {
-                equipment.SetActive(false);
-            }
-            else if (equipment.activeSelf == true)
-            {
-                equipment.SetActive(true);
+            if(equipment != null) {
+                if (equipment != ActiveEquipment && equipment.activeSelf == true)
+                {
+                    equipment.SetActive(false);
+                }
+                else if (equipment.activeSelf == true)
+                {
+                    equipment.SetActive(true);
+                }
             }
         }
 

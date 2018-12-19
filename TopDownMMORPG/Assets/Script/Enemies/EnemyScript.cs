@@ -21,8 +21,13 @@ public class EnemyScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        _HealthSlider.GetComponent<Slider>().SetValueWithoutNotify(Health);
+        if(_HealthSlider != null)
+        {
+            if (_HealthSlider.GetComponent<Slider>() != null)
+            {
+                _HealthSlider.GetComponent<Slider>().SetValueWithoutNotify(Health);
+            }
+        }
 
         if(Health <= 0f && CanDie)
         {
