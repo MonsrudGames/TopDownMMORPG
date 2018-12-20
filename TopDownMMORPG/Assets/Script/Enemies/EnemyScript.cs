@@ -57,9 +57,9 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator DamageColorChange()
     {
-        GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(0.2f);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 
     void AddForce(GameObject DamageDeltBy)

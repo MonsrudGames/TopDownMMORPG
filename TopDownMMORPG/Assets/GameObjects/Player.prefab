@@ -36,6 +36,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5779301826837664902}
+  - {fileID: 57472864506175728}
   - {fileID: 1749378768971822078}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,12 +54,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f446a86506c1a47824771948783867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Equipment:
-  - {fileID: 4474958251395246975}
-  - {fileID: 5613136025554766653}
-  - {fileID: 0}
+  Equipments: []
   ActiveEquipment: {fileID: 4474958251395246975}
   ActiveWeapon: 1
+  ArrowToSpawn: {fileID: 0}
+  Arrows: []
   IsAttacking: 0
   EnemiesAroundPlayer:
   - {fileID: 0}
@@ -229,11 +229,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 57472864506175728}
   - {fileID: 1699870547839071310}
   - {fileID: 6192486241318657690}
   m_Father: {fileID: 691844697442589856}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3118885795401905726
 GameObject:
@@ -264,7 +263,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1749378768971822078}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2195785807881373656
 SpriteRenderer:
@@ -343,8 +342,8 @@ Transform:
   m_LocalPosition: {x: -0.025, y: -0.0706, z: 0}
   m_LocalScale: {x: 1.1999, y: 0.95885545, z: 1.1999}
   m_Children: []
-  m_Father: {fileID: 1749378768971822078}
-  m_RootOrder: 0
+  m_Father: {fileID: 691844697442589856}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7358384489582064155
 SpriteRenderer:
@@ -424,7 +423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1749378768971822078}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &119285737869574293
 SpriteRenderer:
