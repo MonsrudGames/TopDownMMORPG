@@ -1215,7 +1215,7 @@ TextureImporter:
       name: RPGpack_sheet_2X_15
       rect:
         serializedVersion: 2
-        x: 1959
+        x: 1920
         y: 1536
         width: 128
         height: 128
@@ -1236,7 +1236,7 @@ TextureImporter:
       name: RPGpack_sheet_2X_16
       rect:
         serializedVersion: 2
-        x: 2087
+        x: 2048
         y: 1536
         width: 128
         height: 128
@@ -1257,7 +1257,7 @@ TextureImporter:
       name: RPGpack_sheet_2X_17
       rect:
         serializedVersion: 2
-        x: 2251
+        x: 2176
         y: 1536
         width: 128
         height: 128
@@ -1278,7 +1278,7 @@ TextureImporter:
       name: RPGpack_sheet_2X_18
       rect:
         serializedVersion: 2
-        x: 2379
+        x: 2304
         y: 1536
         width: 128
         height: 128
@@ -1614,7 +1614,7 @@ TextureImporter:
       name: RPGpack_sheet_2X_35
       rect:
         serializedVersion: 2
-        x: 1959
+        x: 1920
         y: 1408
         width: 128
         height: 128
@@ -1635,7 +1635,7 @@ TextureImporter:
       name: RPGpack_sheet_2X_36
       rect:
         serializedVersion: 2
-        x: 2087
+        x: 2048
         y: 1408
         width: 128
         height: 128
@@ -1656,7 +1656,7 @@ TextureImporter:
       name: RPGpack_sheet_2X_37
       rect:
         serializedVersion: 2
-        x: 2251
+        x: 2176
         y: 1408
         width: 128
         height: 128
@@ -1677,7 +1677,7 @@ TextureImporter:
       name: RPGpack_sheet_2X_38
       rect:
         serializedVersion: 2
-        x: 2379
+        x: 2304
         y: 1408
         width: 128
         height: 128
