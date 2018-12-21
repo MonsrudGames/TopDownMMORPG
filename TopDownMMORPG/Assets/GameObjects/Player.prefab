@@ -37,6 +37,7 @@ Transform:
   m_Children:
   - {fileID: 5779301826837664902}
   - {fileID: 57472864506175728}
+  - {fileID: 1699870547839071310}
   - {fileID: 1749378768971822078}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,11 +55,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f446a86506c1a47824771948783867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Equipments: []
+  Equipments:
+  - {fileID: 4474958251395246975}
+  - {fileID: 5613136025554766653}
+  - {fileID: 0}
   ActiveEquipment: {fileID: 4474958251395246975}
   ActiveWeapon: 1
-  ArrowToSpawn: {fileID: 0}
-  Arrows: []
+  ArrowToSpawn: {fileID: 7287653659517311711, guid: 9440b6909701d8c4783c2ebf0d72c9d7,
+    type: 3}
+  Arrows:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsAttacking: 0
   EnemiesAroundPlayer:
   - {fileID: 0}
@@ -124,14 +149,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 60
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &519977161
 CircleCollider2D:
@@ -148,7 +173,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!95 &5566387290405701067
 Animator:
   serializedVersion: 3
@@ -229,10 +254,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1699870547839071310}
   - {fileID: 6192486241318657690}
   m_Father: {fileID: 691844697442589856}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3118885795401905726
 GameObject:
@@ -262,8 +286,8 @@ Transform:
   m_LocalPosition: {x: -0.0371, y: -0.8335, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1749378768971822078}
-  m_RootOrder: 0
+  m_Father: {fileID: 691844697442589856}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2195785807881373656
 SpriteRenderer:
@@ -410,7 +434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6192486241318657690
 Transform:
   m_ObjectHideFlags: 0
@@ -423,7 +447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1749378768971822078}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &119285737869574293
 SpriteRenderer:

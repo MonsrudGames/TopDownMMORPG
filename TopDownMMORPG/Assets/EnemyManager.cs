@@ -34,7 +34,7 @@ public class EnemyManager : MonoBehaviour
         {
             if(Enemies[i] != null && EnemyHealthSliders[i] != null)
             {
-                EnemyHealthSliders[i].transform.position = Enemies[i].transform.position + new Vector3(0, Enemies[i].GetComponent<BoxCollider2D>().bounds.extents.y);
+                EnemyHealthSliders[i].transform.position = Enemies[i].transform.position + new Vector3(0, Enemies[i].GetComponent<CircleCollider2D>().bounds.extents.y);
                 Enemies[i].GetComponent<EnemyScript>()._HealthSlider = EnemyHealthSliders[i];
 
             }else if(EnemyHealthSliders[i] == null && Enemies[i] != null)
@@ -42,7 +42,7 @@ public class EnemyManager : MonoBehaviour
                 GameObject CurrentEnemySlider = Instantiate(_slider, _canvas.transform);
                 EnemyHealthSliders[i] = CurrentEnemySlider;
                 
-                EnemyHealthSliders[i].transform.position = Enemies[i].transform.position + new Vector3(0, Enemies[i].GetComponent<BoxCollider2D>().bounds.extents.y);
+                EnemyHealthSliders[i].transform.position = Enemies[i].transform.position + new Vector3(0, Enemies[i].GetComponent<CircleCollider2D>().bounds.extents.y);
             }else if(Enemies[i] == null && EnemyHealthSliders[i] == null)
             {
             }

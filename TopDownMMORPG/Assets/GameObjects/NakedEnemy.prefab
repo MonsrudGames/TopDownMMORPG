@@ -89,9 +89,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3006926975002326151}
-  - component: {fileID: 3006926975002326148}
   - component: {fileID: 3006926975002326154}
   - component: {fileID: 3006926975002326149}
+  - component: {fileID: 4205233862230997364}
   m_Layer: 0
   m_Name: NakedEnemy
   m_TagString: Enemy
@@ -114,32 +114,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3006926975002326148
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3006926975002326145}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &3006926975002326154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a993748edbf5e446abc7d19e532c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 691844697442589858, guid: c48bf0bd1eb3b2f47b2c0543ddc098e3, type: 3}
+  DetectionRange: 9
+  MovementSpeed: 3
   Health: 100
   _HealthSlider: {fileID: 0}
   CanDie: 1
@@ -168,7 +145,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -177,3 +154,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &4205233862230997364
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3006926975002326145}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0295887, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4704113

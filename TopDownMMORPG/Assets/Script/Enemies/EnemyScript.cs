@@ -9,6 +9,13 @@ public class EnemyScript : MonoBehaviour
 
     Rigidbody2D rb;
 
+    GameObject Player;
+    
+    [Range(1,30)]
+    public float DetectionRange;
+
+    public float MovementSpeed;
+
     public float Health = 100;
     public GameObject _HealthSlider;
 
@@ -17,7 +24,10 @@ public class EnemyScript : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
+
+    
 
     private void FixedUpdate()
     {
@@ -26,6 +36,12 @@ public class EnemyScript : MonoBehaviour
             if (_HealthSlider.GetComponent<Slider>() != null)
             {
                 _HealthSlider.GetComponent<Slider>().SetValueWithoutNotify(Health);
+            }
+
+            if (Vector3.Distance(Player.transform.position, this.transform.position) <= DetectionRange)
+            {
+                Move(Player.transform.position);
+                DetectionRange = float.PositiveInfinity;
             }
         }
 
@@ -36,22 +52,28 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    public void GetHit(GameObject DamageDeltBy, float time)
+    void Move(Vector3 MovePos)
     {
-        StartCoroutine(GetDamaged(DamageDeltBy, time));
+        this.transform.position += (Player.transform.position - this.transform.position).normalized * Time.deltaTime * MovementSpeed;
     }
 
-    IEnumerator GetDamaged(GameObject DamageDeltBy,float time)
+    public void GetHit(GameObject DamageDeltBy)
     {
-        yield return new WaitForSeconds(time);
+        if(DamageDeltBy != null)
+        {
+            GetDamaged(DamageDeltBy);
+        }
+    }
+
+    void GetDamaged(GameObject DamageDeltBy)
+    {
         StartCoroutine(DamageColorChange());
         AddForce(DamageDeltBy);
-        StartCoroutine(TakeDamage(0.2f));
+        TakeHealth();
     }
 
-    IEnumerator TakeDamage(float time)
+    void TakeHealth()
     {
-        yield return new WaitForSeconds(time);
         Health -= 34f;
     }
 
