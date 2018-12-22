@@ -9,13 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 691844697442589856}
+  - component: {fileID: 6675695004007616309}
+  - component: {fileID: 4435606770041296714}
   - component: {fileID: 7440823640962455466}
   - component: {fileID: 519977158}
   - component: {fileID: 1070686437}
   - component: {fileID: 519977162}
   - component: {fileID: 519977161}
   - component: {fileID: 5566387290405701067}
-  - component: {fileID: 1070686445}
   - component: {fileID: 1070686438}
   m_Layer: 0
   m_Name: Player
@@ -42,6 +43,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6675695004007616309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691844697442589858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d294e6b24d4303047b39e9d69f2dead7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BonusArmorHealth: 0
+  PlayerHealth: 100
+  PlayerMana: 100
+--- !u!114 &4435606770041296714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691844697442589858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 968ae7891d2bc7d409f045ce85539934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7440823640962455466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,27 +115,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   IsAttacking: 0
-  EnemiesAroundPlayer:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  CanAttack: 0
+  EnemyToHit: {fileID: 0}
+  EnemiesThatWasHit: []
 --- !u!114 &519977158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  CanMove: 0
 --- !u!114 &1070686437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,22 +206,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &1070686445
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691844697442589858}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!111 &1070686438
 Animation:
   m_ObjectHideFlags: 0

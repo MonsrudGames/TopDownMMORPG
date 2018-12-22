@@ -13,6 +13,7 @@ public class PlayerEquipment : MonoBehaviour
     public GameObject[] Arrows;
 
     public bool IsAttacking;
+    public bool CanAttack;
 
     SpriteRenderer _SpriteRenderer;
 
@@ -29,47 +30,52 @@ public class PlayerEquipment : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !IsAttacking && ActiveEquipment != Equipments[0])
+        if (CanAttack)
         {
-            ActiveEquipment = Equipments[0];
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !IsAttacking && ActiveEquipment != Equipments[1])
-        {
-            ActiveEquipment = Equipments[1];
-        }
-
-        foreach (GameObject equipment in Equipments)
-        {
-            if(equipment != null) {
-                if (equipment != ActiveEquipment && equipment.activeSelf == true)
-                {
-                    equipment.SetActive(false);
-                }
-                else if (equipment.activeSelf == true)
-                {
-                    equipment.SetActive(true);
-                }
-            }
-        }
-
-        if (Input.GetButtonDown("Fire1") && !IsAttacking)
-        {
-            if(ActiveEquipment == Equipments[0])
+            if (Input.GetKeyDown(KeyCode.Alpha1) && !IsAttacking && ActiveEquipment != Equipments[0])
             {
-                StartCoroutine(SwingSwordAnim());
+                ActiveEquipment = Equipments[0];
             }
-            else if(ActiveEquipment == Equipments[1])
+            if (Input.GetKeyDown(KeyCode.Alpha2) && !IsAttacking && ActiveEquipment != Equipments[1])
             {
-                StartCoroutine(DrawBowAnim());
+                ActiveEquipment = Equipments[1];
             }
-        }else if (!IsAttacking)
-        {
-            GetComponentInChildren<BoxCollider2D>().enabled = false;
-        }
-        else if (IsAttacking)
-        {
-            GetComponentInChildren<BoxCollider2D>().enabled = true;
-            DamageEnemies();
+
+            foreach (GameObject equipment in Equipments)
+            {
+                if (equipment != null)
+                {
+                    if (equipment != ActiveEquipment && equipment.activeSelf == true)
+                    {
+                        equipment.SetActive(false);
+                    }
+                    else if (equipment.activeSelf == true)
+                    {
+                        equipment.SetActive(true);
+                    }
+                }
+            }
+
+            if (Input.GetButtonDown("Fire1") && !IsAttacking)
+            {
+                if (ActiveEquipment == Equipments[0])
+                {
+                    StartCoroutine(SwingSwordAnim());
+                }
+                else if (ActiveEquipment == Equipments[1])
+                {
+                    StartCoroutine(DrawBowAnim());
+                }
+            }
+            else if (!IsAttacking)
+            {
+                GetComponentInChildren<BoxCollider2D>().enabled = false;
+            }
+            else if (IsAttacking)
+            {
+                GetComponentInChildren<BoxCollider2D>().enabled = true;
+                DamageEnemies();
+            }
         }
     }
 

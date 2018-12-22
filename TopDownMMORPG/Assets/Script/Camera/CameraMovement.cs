@@ -12,6 +12,8 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         PPC = GetComponent<PixelPerfectCamera>();
+
+        this.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, -10f);
     }
 
     void Update()

@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public bool CanMove;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,9 +28,16 @@ public class PlayerMovement : MonoBehaviour
 
         //fix the speed for the Movement vector
         Mov *= Speed * Time.deltaTime;
+        if (CanMove)
+        {
 
-        //apply the movement via a rigidbody component
-        rb.MovePosition(this.transform.position + (Vector3)Mov);
+            //apply the movement via a rigidbody component
+            rb.MovePosition(this.transform.position + (Vector3)Mov);
+        }
+        else
+        {
+            Mov = Vector2.zero;
+        }
 
         //Activate Walking animation if moveing (Vector3 Mov X and Y is Not equals to zero)
         if(Mov != Vector2.zero)

@@ -27,7 +27,12 @@ public class EnemyScript : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    
+    Collision2D Collision;
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Collision = collision;
+    }
 
     private void FixedUpdate()
     {
@@ -38,7 +43,7 @@ public class EnemyScript : MonoBehaviour
                 _HealthSlider.GetComponent<Slider>().SetValueWithoutNotify(Health);
             }
 
-            if (Vector3.Distance(Player.transform.position, this.transform.position) <= DetectionRange)
+            if (Vector3.Distance(Player.transform.position, this.transform.position) <= DetectionRange && Vector3.Distance(Player.transform.position, this.transform.position) >= 1.5f)
             {
                 Move(Player.transform.position);
                 DetectionRange = float.PositiveInfinity;
