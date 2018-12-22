@@ -43,10 +43,14 @@ public class EnemyScript : MonoBehaviour
                 _HealthSlider.GetComponent<Slider>().SetValueWithoutNotify(Health);
             }
 
-            if (Vector3.Distance(Player.transform.position, this.transform.position) <= DetectionRange && Vector3.Distance(Player.transform.position, this.transform.position) >= 1.5f)
+            if (Vector3.Distance(Player.transform.position, this.transform.position) <= DetectionRange && Vector3.Distance(Player.transform.position, this.transform.position) >= 1f)
             {
                 Move(Player.transform.position);
-                DetectionRange = float.PositiveInfinity;
+                DetectionRange = 30;
+            }
+            else
+            {
+                DetectionRange = 9;
             }
         }
 
@@ -59,7 +63,7 @@ public class EnemyScript : MonoBehaviour
 
     void Move(Vector3 MovePos)
     {
-        this.transform.position += (Player.transform.position - this.transform.position).normalized * Time.deltaTime * MovementSpeed;
+        rb.MovePosition(this.transform.position - (this.transform.position - Player.transform.position).normalized * Time.deltaTime * MovementSpeed);
     }
 
     public void GetHit(GameObject DamageDeltBy)

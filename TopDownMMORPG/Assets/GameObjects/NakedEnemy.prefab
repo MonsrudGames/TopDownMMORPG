@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7117352459926733294, guid: bad0ed9650523e44bb5661418da1ca3e,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a993748edbf5e446abc7d19e532c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 691844697442589858, guid: c48bf0bd1eb3b2f47b2c0543ddc098e3, type: 3}
   DetectionRange: 9
   MovementSpeed: 3
   Health: 100

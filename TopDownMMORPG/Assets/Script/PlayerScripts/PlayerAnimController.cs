@@ -27,13 +27,11 @@ public class PlayerAnimController : MonoBehaviour
     {
         if (state)
         {
-            print("fff" + state);
             IsAttacking = true;
             animation.Play(Attack.name, PlayMode.StopAll);
         }
         else
         {
-            print("fff" + state);
             IsAttacking = false;
             animation.Play(Idle.name);
         }

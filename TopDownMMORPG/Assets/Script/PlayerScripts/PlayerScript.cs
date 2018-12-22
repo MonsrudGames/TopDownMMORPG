@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _stats = GetComponent<PlayerStats>();
         _stats.PlayerHealth = 100f;
         _stats.PlayerMana = 100f;
     }

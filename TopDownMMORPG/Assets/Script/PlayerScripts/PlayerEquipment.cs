@@ -128,26 +128,27 @@ public class PlayerEquipment : MonoBehaviour
                 if (EnemiesThatWasHit[i] == EnemyToHit)
                 {
                     a = true;
-                    Debug.Log("NEIN!");
                     i = EnemiesThatWasHit.Length;
                 }
-
-                Debug.Log("ja!");
             }
 
             if (!a)
             {
-                EnemyToHit.GetComponent<EnemyScript>().GetHit(this.gameObject);
+                if(EnemyToHit != null)
+                {
+                    if(EnemyToHit.GetComponent<EnemyScript>() != null)
+                    {
+                        EnemyToHit.GetComponent<EnemyScript>().GetHit(this.gameObject);
+                    }
+                }
 
                 for (int i = 0; i < EnemiesThatWasHit.Length; i++)
                 {
                     if (EnemiesThatWasHit[i] == null)
                     {
-                        Debug.Log("YASS!");
                         EnemiesThatWasHit[i] = EnemyToHit;
                         i = EnemiesThatWasHit.Length;
                     }
-                    Debug.Log("nei!");
                 }
             }
 
