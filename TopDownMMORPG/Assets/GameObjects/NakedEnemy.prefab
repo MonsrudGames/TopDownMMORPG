@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DetectionRange: 9
-  MovementSpeed: 3
+  MovementSpeed: 2.5
   Health: 100
   _HealthSlider: {fileID: 0}
   CanDie: 1
