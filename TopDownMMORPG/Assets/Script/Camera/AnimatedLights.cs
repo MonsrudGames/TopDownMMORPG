@@ -18,9 +18,12 @@ public class AnimatedLights : MonoBehaviour
 
     float ScaleNumber;
 
+    public bool IsDay;
+
     private void Start()
     {
-        Masks = GetComponentsInChildren<SpriteMask>();
+            IsDay = false;
+           Masks = GetComponentsInChildren<SpriteMask>();
         foreach (SpriteMask mask in Masks)
         {
             if(mask.name == "InnerMask")
@@ -47,8 +50,6 @@ public class AnimatedLights : MonoBehaviour
             }
         }
     }
-
-    public bool IsDay;
 
     private void Update()
     {
