@@ -15,14 +15,11 @@ public class PlayerEquipment : MonoBehaviour
     public bool IsAttacking;
     public bool CanAttack;
 
-    SpriteRenderer _SpriteRenderer;
-
     public GameObject EnemyToHit;
     public GameObject[] EnemiesThatWasHit;
 
     void Start()
     {
-        _SpriteRenderer = GetComponent<SpriteRenderer>();
         ActiveEquipment = Equipments[0];
         ActiveWeapon = true;
     }

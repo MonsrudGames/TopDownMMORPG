@@ -7,31 +7,33 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
 
-    Rigidbody2D rb;
-
-    GameObject Player;
-    
-    [Range(1,30)]
-    public float DetectionRange;
-
-    public float MovementSpeed;
-
+    [Header("EnemyStats")]
     public float Health = 100;
-    public GameObject _HealthSlider;
+    [Range(1, 30)]
+    public float DetectionRange;
+    public float MovementSpeed;
+    public float Damage;
 
-    public bool CanDie;
+    float TimeSinceLastAttack;
+
+    bool CanDie;
+    
+    Rigidbody2D rb;
+    GameObject Player;
+    [HideInInspector]
+    public GameObject _HealthSlider;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
+
+        CanDie = true;
     }
 
-    Collision2D Collision;
-
-    private void OnCollisionStay2D(Collision2D collision)
+    private void Update()
     {
-        Collision = collision;
+        TimeSinceLastAttack += 1 * Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -43,7 +45,7 @@ public class EnemyScript : MonoBehaviour
                 _HealthSlider.GetComponent<Slider>().SetValueWithoutNotify(Health);
             }
 
-            if (Vector3.Distance(Player.transform.position, this.transform.position) <= DetectionRange && Vector3.Distance(Player.transform.position, this.transform.position) >= 1f)
+            if (Vector3.Distance(Player.transform.position, this.transform.position) <= DetectionRange && Vector3.Distance(Player.transform.position, this.transform.position) >= 1.3f)
             {
                 Move(Player.transform.position);
                 DetectionRange = 30;
@@ -51,6 +53,11 @@ public class EnemyScript : MonoBehaviour
             else
             {
                 DetectionRange = 9;
+            }
+
+            if(Vector3.Distance(Player.transform.position, this.transform.position) <= 1.5f && TimeSinceLastAttack >= 2f)
+            {
+                StartCoroutine(DamagePlayer());
             }
         }
 
@@ -61,9 +68,19 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    IEnumerator DamagePlayer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (Vector3.Distance(Player.transform.position, this.transform.position) <= 1.5f && TimeSinceLastAttack >= 2f)
+        {
+            Player.GetComponent<PlayerScript>().ReciveDamage(this.gameObject, Damage);
+            TimeSinceLastAttack = 0;
+        }
+    }
+
     void Move(Vector3 MovePos)
     {
-        rb.MovePosition(this.transform.position - (this.transform.position - Player.transform.position).normalized * Time.deltaTime * MovementSpeed);
+        rb.AddForce(Vector3.ClampMagnitude((Player.transform.position - this.transform.position), 1f) * (MovementSpeed * 100f));
     }
 
     public void GetHit(GameObject DamageDeltBy)

@@ -41,24 +41,6 @@ Tilemap:
   m_GameObject: {fileID: 3169317565358224989}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -1, y: -12, z: 0}
-    second:
-      m_TileIndex: 242
-      m_TileSpriteIndex: 242
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: 0, y: -12, z: 0}
-    second:
-      m_TileIndex: 244
-      m_TileSpriteIndex: 244
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: 1, y: -12, z: 0}
     second:
       m_TileIndex: 265
@@ -90,24 +72,6 @@ Tilemap:
     second:
       m_TileIndex: 240
       m_TileSpriteIndex: 243
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: -1, y: -11, z: 0}
-    second:
-      m_TileIndex: 243
-      m_TileSpriteIndex: 263
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: 0, y: -11, z: 0}
-    second:
-      m_TileIndex: 245
-      m_TileSpriteIndex: 240
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -2912,14 +2876,14 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 1cf6da0c056c7f940a739dc3ec836150, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 18017bb23afdc6d4288e9530e8303b9a, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 9220facd9568d5848932a0c08f898ca8, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 2412f35014814c14c9d63259d4cab12b, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: bfc5b29c2e64b0341b06e01fcda4d129, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 2c0aaf985a8186840ba59e7faf3a7403, type: 2}
   - m_RefCount: 1
@@ -3669,20 +3633,17 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -3993408510808823734, guid: 3f50ba9b240775a44a0b3b1e1b25fc6e,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -5889310891611023135, guid: 0ddc88f2b5425154cbc2c8e720ea22c4,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1640715911836642325, guid: 3f50ba9b240775a44a0b3b1e1b25fc6e,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 6898035379108858973, guid: 0ddc88f2b5425154cbc2c8e720ea22c4,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 121414997016450717, guid: 3f50ba9b240775a44a0b3b1e1b25fc6e, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 6588851568967531093, guid: 0ddc88f2b5425154cbc2c8e720ea22c4,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 3301757055642575586, guid: 3f50ba9b240775a44a0b3b1e1b25fc6e,
       type: 3}
@@ -3737,11 +3698,10 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -380787975181734724, guid: 0ddc88f2b5425154cbc2c8e720ea22c4,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 2667589067915142571, guid: 0ddc88f2b5425154cbc2c8e720ea22c4,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 265
+  - m_RefCount: 261
     m_Data:
       e00: 1
       e01: 0
@@ -3760,7 +3720,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 265
+  - m_RefCount: 261
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3823,7 +3783,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.5161904, y: 0.5161904, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0

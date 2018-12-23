@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        _canvas = GameObject.Find("Canvas");
+        _canvas = GameObject.Find("EnemyCanvas");
         for (int i = 0; i < Enemies.Length; i++)
         {
             if(EnemyHealthSliders[i] == null)

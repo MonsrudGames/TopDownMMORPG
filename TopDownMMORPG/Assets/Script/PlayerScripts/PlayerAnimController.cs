@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimController : MonoBehaviour
 {
     
-    public Animation animation;
+    public Animation _playerAnimation;
 
     public AnimationClip Idle, Walk, Attack;
 
@@ -15,11 +15,11 @@ public class PlayerAnimController : MonoBehaviour
     {
         if (state && !IsAttacking)
         {
-            animation.Play(Walk.name);
+            _playerAnimation.Play(Walk.name);
         }
         else if(!IsAttacking)
         {
-            animation.Play(Idle.name);
+            _playerAnimation.Play(Idle.name);
         }
     }
 
@@ -28,12 +28,12 @@ public class PlayerAnimController : MonoBehaviour
         if (state)
         {
             IsAttacking = true;
-            animation.Play(Attack.name, PlayMode.StopAll);
+            _playerAnimation.Play(Attack.name, PlayMode.StopAll);
         }
         else
         {
             IsAttacking = false;
-            animation.Play(Idle.name);
+            _playerAnimation.Play(Idle.name);
         }
     }
 }

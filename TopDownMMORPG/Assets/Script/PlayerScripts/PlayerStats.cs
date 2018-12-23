@@ -10,4 +10,6 @@ public class PlayerStats : MonoBehaviour
 
     [Range(0f, 100f)]
     public float PlayerMana;
+
+    public bool Dead;
 }
