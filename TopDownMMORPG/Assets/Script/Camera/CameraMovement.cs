@@ -32,8 +32,27 @@ public class CameraMovement : MonoBehaviour
             DragOrigin = LastFrameDragOrigin = Vector3.zero;
         }
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            this.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, -10f);
+        }
+
         this.transform.position -= Camera.main.ScreenToWorldPoint(DragOrigin) - Camera.main.ScreenToWorldPoint(LastFrameDragOrigin);
 
         LastFrameDragOrigin = DragOrigin;
+
+        //Camera Zoom
+        float MouseWheel = Input.GetAxisRaw("Mouse ScrollWheel");
+
+        if (MouseWheel < 0f && PPC.assetsPPU > 15)
+        {
+            PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
+        }
+        if (MouseWheel > 0f && PPC.assetsPPU < 75)
+        {
+            PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
+        }
+
+        Debug.Log(" " + MouseWheel);
     }
 }

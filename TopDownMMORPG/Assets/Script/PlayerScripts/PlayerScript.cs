@@ -24,13 +24,41 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void ReciveDamage()
-    {
+    bool DeadAnimStarted = false;
 
+    public void ReciveDamage( GameObject DamageDeltBy, float Damage)
+    {
+        if (!_stats.Dead)
+        {
+            _stats.PlayerHealth -= Damage;
+            Debug.Log("Currently have " + _stats.PlayerHealth + " Health. Lost " + Damage + "Health");
+            StartCoroutine(ChangePlayerColor());
+        }
+        else if(!DeadAnimStarted)
+        {
+            StartCoroutine(PlayerKilled());
+        }
     }
 
     void Die()
     {
-
+        Debug.Log("Dead!");
+        _stats.Dead = true;
     }
+
+    IEnumerator ChangePlayerColor()
+    {
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
+
+    IEnumerator PlayerKilled()
+    {
+        DeadAnimStarted = true;
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(1f);
+        this.gameObject.SetActive(false);
+    }
+
 }
