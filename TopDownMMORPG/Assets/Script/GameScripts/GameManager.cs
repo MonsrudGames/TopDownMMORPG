@@ -6,17 +6,20 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public Tilemap BlackMap;
-    public Tilemap DarkMap;
-    public Tilemap BlurredMap;
-    public Tilemap GroundMap;
+    Tilemap BlackMap;
+    Tilemap DarkMap;
+    Tilemap BlurredMap;
+    Tilemap GroundMap;
 
-    public Tile BlackTile;
-    public Tile DarkTile;
-    public Tile BlurredTile;
+    public Tile[] Tiles;
     
     void Start()
     {
+
+        BlackMap = GameObject.Find("BlackMap").GetComponent<Tilemap>();
+         DarkMap = GameObject.Find("DarkMap").GetComponent<Tilemap>();
+         BlurredMap = GameObject.Find("BlurredMap").GetComponent<Tilemap>();
+         GroundMap = GameObject.Find("GroundMap").GetComponent<Tilemap>();
 
         BlackMap.origin = BlurredMap.origin = GroundMap.origin;
         BlackMap.size = BlurredMap.size = GroundMap.size;
@@ -26,15 +29,15 @@ public class GameManager : MonoBehaviour
 
         foreach (Vector3Int p in BlackMap.cellBounds.allPositionsWithin)
         {
-            BlackMap.SetTile(p, BlackTile);
+            BlackMap.SetTile(p, Tiles[0]);
         }
         foreach (Vector3Int p in DarkMap.cellBounds.allPositionsWithin)
         {
-            DarkMap.SetTile(p, DarkTile);
+            DarkMap.SetTile(p, Tiles[1]);
         }
         foreach (Vector3Int p in BlurredMap.cellBounds.allPositionsWithin)
         {
-            BlurredMap.SetTile(p, BlurredTile);
+            BlurredMap.SetTile(p, Tiles[2]);
         }
 
     }

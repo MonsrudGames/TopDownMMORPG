@@ -15,6 +15,7 @@ public class AnimatedLights : MonoBehaviour
 
     public GameObject InnerMask;
     public GameObject OuterMask;
+    public GameObject DarkMapMask;
 
     float ScaleNumber;
 
@@ -29,9 +30,14 @@ public class AnimatedLights : MonoBehaviour
             if(mask.name == "InnerMask")
             {
                 InnerMask = mask.gameObject;
-            }else if(mask.name == "OuterMask")
+            }
+            else if (mask.name == "OuterMask")
             {
                 OuterMask = mask.gameObject;
+            }
+            else if (mask.name == "DarkMapMask")
+            {
+                DarkMapMask = mask.gameObject;
             }
         }
     }
@@ -55,7 +61,7 @@ public class AnimatedLights : MonoBehaviour
     {
         ResizeCircle(InnerMask);
 
-        if (Input.GetKeyDown(KeyCode.X) && ScaleNumber == 0)
+        if (Input.GetKeyDown(KeyCode.X))
         {
             IsDay = !IsDay;
             for (int i = 0; i < Masks.Length; i++)
@@ -118,6 +124,7 @@ public class AnimatedLights : MonoBehaviour
         {
             InnerMask.transform.localScale = Vector3.Lerp(InnerMask.transform.localScale, new Vector3(CircleBigSize, CircleBigSize, CircleBigSize), 1f * Time.deltaTime);
             OuterMask.transform.localScale = Vector3.Lerp(OuterMask.transform.localScale, new Vector3(CircleBigSize, CircleBigSize, CircleBigSize) * 1.5f, 1f * Time.deltaTime);
+            DarkMapMask.transform.localScale = Vector3.Lerp(DarkMapMask.transform.localScale, new Vector3(CircleBigSize, CircleBigSize, CircleBigSize) * 1.5f, 1f * Time.deltaTime);
 
             if (Vector3.Distance(InnerMask.transform.localScale, new Vector3(CircleBigSize, CircleBigSize, CircleBigSize)) < 2f)
             {
@@ -127,13 +134,15 @@ public class AnimatedLights : MonoBehaviour
 
         else if (ScaleNumber == 2f)
         {
-            InnerMask.transform.localScale = Vector3.Lerp(InnerMask.transform.localScale, new Vector3(CircleSmallSize, CircleSmallSize, CircleSmallSize), 1f * Time.deltaTime);
-            OuterMask.transform.localScale = Vector3.Lerp(OuterMask.transform.localScale, new Vector3(CircleSmallSize, CircleSmallSize, CircleSmallSize) * 1.5f, 1f * Time.deltaTime);
+            InnerMask.transform.localScale = Vector3.Lerp(InnerMask.transform.localScale, new Vector3(CircleSmallSize, CircleSmallSize, CircleSmallSize), 2f * Time.deltaTime);
+            OuterMask.transform.localScale = Vector3.Lerp(OuterMask.transform.localScale, new Vector3(CircleSmallSize, CircleSmallSize, CircleSmallSize) * 1.5f, 2f * Time.deltaTime);
+            DarkMapMask.transform.localScale = Vector3.Lerp(DarkMapMask.transform.localScale, new Vector3(0, 0, 0), 6f * Time.deltaTime);
 
             if (Vector3.Distance(InnerMask.transform.localScale, new Vector3(CircleSmallSize, CircleSmallSize, CircleSmallSize)) < 0.02f)
             {
                 InnerMask.transform.localScale = new Vector3(CircleSmallSize, CircleSmallSize, CircleSmallSize);
                 OuterMask.transform.localScale = new Vector3(CircleSmallSize, CircleSmallSize, CircleSmallSize) * 1.5f;
+                DarkMapMask.transform.localScale = new Vector3(0, 0, 0);
                 ScaleNumber = 0;
             }
         }

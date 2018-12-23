@@ -7,11 +7,11 @@ public class CameraMovement : MonoBehaviour
 {
     private Vector3 DragOrigin, LastFrameDragOrigin;
 
-    // PixelPerfectCamera PPC;
+    PixelPerfectCamera PPC;
 
     private void Start()
     {
-        // PPC = GetComponent<PixelPerfectCamera>();
+        PPC = GetComponent<PixelPerfectCamera>();
 
         this.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, -10f);
     }
@@ -40,5 +40,19 @@ public class CameraMovement : MonoBehaviour
         this.transform.position -= Camera.main.ScreenToWorldPoint(DragOrigin) - Camera.main.ScreenToWorldPoint(LastFrameDragOrigin);
 
         LastFrameDragOrigin = DragOrigin;
+
+        //Camera Zoom
+        float MouseWheel = Input.GetAxisRaw("Mouse ScrollWheel");
+
+        if (MouseWheel < 0f && PPC.assetsPPU > 15)
+        {
+            PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
+        }
+        if (MouseWheel > 0f && PPC.assetsPPU < 75)
+        {
+            PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
+        }
+
+        Debug.Log(" " + MouseWheel);
     }
 }
