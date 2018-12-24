@@ -32,6 +32,30 @@ TextureImporter:
   - first:
       213: 1991381244642994305
     second: Bridge_3
+  - first:
+      213: 8835223943214045951
+    second: Bridge_4
+  - first:
+      213: -198627575138496986
+    second: Bridge_5
+  - first:
+      213: 1896041614993389451
+    second: Bridge_6
+  - first:
+      213: 5995983165575331373
+    second: Bridge_7
+  - first:
+      213: 6377067610504366528
+    second: Bridge_8
+  - first:
+      213: -4854658577280284451
+    second: Bridge_9
+  - first:
+      213: -3173198050807050014
+    second: Bridge_10
+  - first:
+      213: -8775140485605900777
+    second: Bridge_11
   externalObjects: {}
   serializedVersion: 8
   mipmaps:
@@ -90,10 +114,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,10 +125,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,10 +136,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Windows Store Apps
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,10 +147,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,10 +158,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -150,8 +174,8 @@ TextureImporter:
       name: Wooden Bridge Bottom_L
       rect:
         serializedVersion: 2
-        x: 2
-        y: 16
+        x: 0
+        y: 11
         width: 28
         height: 28
       alignment: 0
@@ -171,8 +195,8 @@ TextureImporter:
       name: Wooden Bridge Top_L
       rect:
         serializedVersion: 2
-        x: 2
-        y: 72
+        x: 0
+        y: 67
         width: 28
         height: 28
       alignment: 0
@@ -192,8 +216,8 @@ TextureImporter:
       name: Wooden bridge middle_L
       rect:
         serializedVersion: 2
-        x: 2
-        y: 44
+        x: 0
+        y: 39
         width: 28
         height: 28
       alignment: 0
@@ -213,8 +237,8 @@ TextureImporter:
       name: Wooden Bridge Bottom_R
       rect:
         serializedVersion: 2
-        x: 58
-        y: 16
+        x: 56
+        y: 11
         width: 28
         height: 28
       alignment: 0
@@ -234,8 +258,8 @@ TextureImporter:
       name: Wooden bridge middle_R
       rect:
         serializedVersion: 2
-        x: 58
-        y: 44
+        x: 56
+        y: 39
         width: 28
         height: 28
       alignment: 0
@@ -255,8 +279,8 @@ TextureImporter:
       name: Wooden Bridge Top_R
       rect:
         serializedVersion: 2
-        x: 58
-        y: 72
+        x: 56
+        y: 67
         width: 28
         height: 28
       alignment: 0
@@ -276,8 +300,8 @@ TextureImporter:
       name: Bridge_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 72
+        x: 28
+        y: 67
         width: 28
         height: 28
       alignment: 0
@@ -297,8 +321,8 @@ TextureImporter:
       name: Bridge_2
       rect:
         serializedVersion: 2
-        x: 30
-        y: 44
+        x: 28
+        y: 39
         width: 28
         height: 28
       alignment: 0
@@ -318,8 +342,8 @@ TextureImporter:
       name: Bridge_3
       rect:
         serializedVersion: 2
-        x: 30
-        y: 16
+        x: 28
+        y: 11
         width: 28
         height: 28
       alignment: 0
@@ -331,6 +355,195 @@ TextureImporter:
       bones: []
       spriteID: 710725dbe5d893f49aceae7b2b57a9f9
       internalID: 1991381244642994305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 11
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8bb3b8457c94b946917861fb04aad79
+      internalID: 7265813586516431896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 39
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac216ac4910375d4aaa4ff8feb8503fd
+      internalID: 8835223943214045951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_5
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 67
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d000f5775c79e6439e92d16a7100a1b
+      internalID: -198627575138496986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_6
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 67
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719107cc8d4f4f54d9b39e32a059c27a
+      internalID: 1896041614993389451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_7
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 39
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e586e273ac7e7344dad3f88a7e88b94a
+      internalID: 5995983165575331373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_8
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 11
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1b9f0a0361df84eb1dedf6c9988043
+      internalID: 6377067610504366528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_9
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 39
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49017e15c73d31440aff289c019e1eb6
+      internalID: -4854658577280284451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_10
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 67
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd697f05fb8088a4fa202e8fa3e3b8b0
+      internalID: -3173198050807050014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_11
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 11
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8750b87ae5115344be407d06ee8906c
+      internalID: -8775140485605900777
       vertices: []
       indices: 
       edges: []
