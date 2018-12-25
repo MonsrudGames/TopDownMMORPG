@@ -9,8 +9,11 @@ public class CameraMovement : MonoBehaviour
 
     PixelPerfectCamera PPC;
 
+    PlayerManager PM;
+
     private void Start()
     {
+        PM = GameObject.Find("GameManager").GetComponent<PlayerManager>();
         PPC = GetComponent<PixelPerfectCamera>();
 
         this.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, -10f);
@@ -18,41 +21,45 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        //Move Camera
-        if (Input.GetMouseButtonDown(1))
+        //check if Camera Can Move. this is disabled if inventory or pause menu is open
+        if (PM.CameraCanMove)
         {
-            DragOrigin = LastFrameDragOrigin = Input.mousePosition;
-        }
-        if (Input.GetMouseButton(1))
-        {
-            DragOrigin = Input.mousePosition;
-        }
-        if (!Input.GetMouseButton(1))
-        {
-            DragOrigin = LastFrameDragOrigin = Vector3.zero;
-        }
+            //Move Camera
+            if (Input.GetMouseButtonDown(1))
+            {
+                DragOrigin = LastFrameDragOrigin = Input.mousePosition;
+            }
+            if (Input.GetMouseButton(1))
+            {
+                DragOrigin = Input.mousePosition;
+            }
+            if (!Input.GetMouseButton(1))
+            {
+                DragOrigin = LastFrameDragOrigin = Vector3.zero;
+            }
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            this.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, -10f);
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                this.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, -10f);
+            }
+
+            this.transform.position -= Camera.main.ScreenToWorldPoint(DragOrigin) - Camera.main.ScreenToWorldPoint(LastFrameDragOrigin);
+
+            LastFrameDragOrigin = DragOrigin;
+
+            //Camera Zoom
+            float MouseWheel = Input.GetAxisRaw("Mouse ScrollWheel");
+
+            if (MouseWheel < 0f && PPC.assetsPPU > 15)
+            {
+                PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
+            }
+            if (MouseWheel > 0f && PPC.assetsPPU < 75)
+            {
+                PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
+            }
+
+            Debug.Log(" " + MouseWheel);
         }
-
-        this.transform.position -= Camera.main.ScreenToWorldPoint(DragOrigin) - Camera.main.ScreenToWorldPoint(LastFrameDragOrigin);
-
-        LastFrameDragOrigin = DragOrigin;
-
-        //Camera Zoom
-        float MouseWheel = Input.GetAxisRaw("Mouse ScrollWheel");
-
-        if (MouseWheel < 0f && PPC.assetsPPU > 15)
-        {
-            PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
-        }
-        if (MouseWheel > 0f && PPC.assetsPPU < 75)
-        {
-            PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
-        }
-
-        Debug.Log(" " + MouseWheel);
     }
 }

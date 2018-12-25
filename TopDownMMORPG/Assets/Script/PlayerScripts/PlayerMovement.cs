@@ -10,10 +10,11 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public bool CanMove;
+    PlayerManager PM;
 
     private void Start()
     {
+        PM = GameObject.Find("GameManager").GetComponent<PlayerManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         //fix the speed for the Movement vector
         Mov *= Speed * Time.deltaTime;
-        if (CanMove)
+        if (PM.CanMove)
         {
 
             //apply the movement via a rigidbody component

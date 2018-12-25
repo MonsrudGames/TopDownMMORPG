@@ -13,13 +13,15 @@ public class PlayerEquipment : MonoBehaviour
     public GameObject[] Arrows;
 
     public bool IsAttacking;
-    public bool CanAttack;
 
     public GameObject EnemyToHit;
     public GameObject[] EnemiesThatWasHit;
 
+    PlayerManager PM;
+
     void Start()
     {
+        PM = GameObject.Find("GameManager").GetComponent<PlayerManager>();
         ActiveEquipment = Equipments[0];
         ActiveWeapon = true;
     }
@@ -27,7 +29,7 @@ public class PlayerEquipment : MonoBehaviour
     void Update()
     {
 
-        if (CanAttack)
+        if (PM.CanAttack)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) && !IsAttacking && ActiveEquipment != Equipments[0])
             {

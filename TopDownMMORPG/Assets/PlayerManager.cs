@@ -6,11 +6,14 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
 
-    public GameObject Player;
+    GameObject Player;
+    public GameObject PlayerInventory;
 
     [Header("UI")]
     public Slider PlayerHealthUISlider;
     public Slider PlayerManaUISlider;
+
+    public bool CanMove, CameraCanMove, CanAttack;
 
     private void Start()
     {
@@ -19,6 +22,14 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlayerInventory.SetActive(!PlayerInventory.activeInHierarchy);
+        }
+
+        CanMove = CanAttack  = CameraCanMove = !PlayerInventory.activeInHierarchy;
+
         PlayerHealthUISlider.SetValueWithoutNotify(Player.GetComponent<PlayerStats>().PlayerHealth);
         PlayerManaUISlider.SetValueWithoutNotify(Player.GetComponent<PlayerStats>().PlayerMana);
     }
