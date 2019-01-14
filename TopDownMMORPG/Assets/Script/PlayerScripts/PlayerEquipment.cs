@@ -7,7 +7,12 @@ public class PlayerEquipment : MonoBehaviour
 
     public GameObject[] Equipments;
     public GameObject ActiveEquipment;
-    public bool ActiveWeapon;
+    public bool WeaponActive;
+    
+    public bool SwordActive;
+    public bool BowActive;
+    public bool StaffActive;
+    public bool KnifeActive;
 
     public GameObject ArrowToSpawn;
     public GameObject[] Arrows;
@@ -23,102 +28,110 @@ public class PlayerEquipment : MonoBehaviour
     {
         PM = GameObject.Find("GameManager").GetComponent<PlayerManager>();
         ActiveEquipment = Equipments[0];
-        ActiveWeapon = true;
+        WeaponActive = false;
     }
 
     void Update()
     {
+
+        for (int i = 0; i < Equipments.Length; i++)
+        {
+            if(Equipments[i] != null)
+            {
+                if (Equipments[i].transform.parent != this.transform)
+                {
+                    Equipments[i].transform.parent = this.transform.parent;
+                }
+            }
+        }
+
+        if (!WeaponActive)
+        {
+            foreach (GameObject Weapon in Equipments)
+            {
+                if(Weapon != null)
+                {
+                    Weapon.SetActive(false);
+                }
+            }
+        }
 
         if (PM.CanAttack)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) && !IsAttacking && ActiveEquipment != Equipments[0])
             {
                 ActiveEquipment = Equipments[0];
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2) && !IsAttacking && ActiveEquipment != Equipments[1])
+
+                WeaponActive = true;
+                if(Equipments[0] != null)
+                {
+                    Equipments[0].SetActive(true);
+                }
+                if(Equipments[1] != null)
+                {
+                    Equipments[1].SetActive(false);
+                }
+            }else if (Input.GetKeyDown(KeyCode.Alpha2) && !IsAttacking && ActiveEquipment != Equipments[1])
             {
                 ActiveEquipment = Equipments[1];
-            }
 
-            foreach (GameObject equipment in Equipments)
-            {
-                if (equipment != null)
+                WeaponActive = true;
+                if (Equipments[0] != null)
                 {
-                    if (equipment != ActiveEquipment && equipment.activeSelf == true)
-                    {
-                        equipment.SetActive(false);
-                    }
-                    else if (equipment.activeSelf == true)
-                    {
-                        equipment.SetActive(true);
-                    }
+                    Equipments[0].SetActive(false);
+                }
+                if (Equipments[1] != null)
+                {
+                    Equipments[1].SetActive(true);
                 }
             }
 
             if (Input.GetButtonDown("Fire1") && !IsAttacking)
             {
-                if (ActiveEquipment == Equipments[0])
+                if (SwordActive)
                 {
                     StartCoroutine(SwingSwordAnim());
                 }
-                else if (ActiveEquipment == Equipments[1])
+                else if (BowActive)
                 {
                     StartCoroutine(DrawBowAnim());
+                }
+                else if (StaffActive)
+                {
+                    StartCoroutine(StaffShootAnim());
+                }
+                else if (KnifeActive)
+                {
+                    StartCoroutine(SwingKnifeAnim());
                 }
             }
             else if (!IsAttacking)
             {
-                GetComponentInChildren<BoxCollider2D>().enabled = false;
+                if (GetComponentInChildren<BoxCollider2D>() != null)
+                {
+                    if (SwordActive || KnifeActive)
+                    {
+                        GetComponentInChildren<BoxCollider2D>().enabled = false;
+                    }
+                }
             }
             else if (IsAttacking)
             {
-                GetComponentInChildren<BoxCollider2D>().enabled = true;
-                DamageEnemies();
-            }
-        }
-    }
-
-    IEnumerator DrawBowAnim()
-    {
-        IsAttacking = true;
-        bool a = false;
-        while (!a)
-        {
-            for (int i = 0; i < Arrows.Length || a == true; i++)
-            {
-                if(Arrows[i] == null)
+                if (GetComponentInChildren<BoxCollider2D>() != null)
                 {
-                    a = true;
+                    if (SwordActive || KnifeActive)
+                    {
+                        GetComponentInChildren<BoxCollider2D>().enabled = true;
+                        DamageEnemies();
+                    }
                 }
             }
         }
-
-        Instantiate(ArrowToSpawn, this.transform.position, this.transform.rotation);
-
-        yield return new WaitForSeconds(0.5f);
-        IsAttacking = false;
-    }
-
-    IEnumerator SwingSwordAnim()
-    {
-        IsAttacking = true;
-        GetComponent<PlayerAnimController>().Attacking(true);
-
-        yield return new WaitForSeconds(0.95f);
-
-        GetComponent<PlayerAnimController>().Attacking(false);
-        IsAttacking = false;
-
-        for (int i = 0; i < EnemiesThatWasHit.Length; i++)
-        {
-            EnemiesThatWasHit[i] = null;
-        }
-        EnemyToHit = null;
     }
 
     void DamageEnemies()
     {
-        if (ActiveEquipment = Equipments[0])
+        if (SwordActive)
         {
             bool a = false;
 
@@ -172,8 +185,77 @@ public class PlayerEquipment : MonoBehaviour
             */
     }
 
-    private void OnDrawGizmos()
+
+
+    IEnumerator SwingSwordAnim()
     {
-        Gizmos.DrawWireSphere(this.transform.position, 1.5f);
+        IsAttacking = true;
+        GetComponent<PlayerAnimController>().Attacking(true);
+
+        yield return new WaitForSeconds(0.95f);
+
+        GetComponent<PlayerAnimController>().Attacking(false);
+        IsAttacking = false;
+
+        for (int i = 0; i < EnemiesThatWasHit.Length; i++)
+        {
+            EnemiesThatWasHit[i] = null;
+        }
+        EnemyToHit = null;
+    }
+
+    IEnumerator DrawBowAnim()
+    {
+        IsAttacking = true;
+        bool a = false;
+        while (!a)
+        {
+            for (int i = 0; i < Arrows.Length || a == true; i++)
+            {
+                if (Arrows[i] == null)
+                {
+                    a = true;
+                }
+            }
+        }
+
+        Instantiate(ArrowToSpawn, this.transform.position, this.transform.rotation);
+
+        yield return new WaitForSeconds(0.5f);
+        IsAttacking = false;
+    }
+
+    IEnumerator StaffShootAnim()
+    {
+        IsAttacking = true;
+        GetComponent<PlayerAnimController>().Attacking(true);
+
+        yield return new WaitForSeconds(0.95f);
+
+        GetComponent<PlayerAnimController>().Attacking(false);
+        IsAttacking = false;
+
+        for (int i = 0; i < EnemiesThatWasHit.Length; i++)
+        {
+            EnemiesThatWasHit[i] = null;
+        }
+        EnemyToHit = null;
+    }
+
+    IEnumerator SwingKnifeAnim()
+    {
+        IsAttacking = true;
+        GetComponent<PlayerAnimController>().Attacking(true);
+
+        yield return new WaitForSeconds(0.95f);
+
+        GetComponent<PlayerAnimController>().Attacking(false);
+        IsAttacking = false;
+
+        for (int i = 0; i < EnemiesThatWasHit.Length; i++)
+        {
+            EnemiesThatWasHit[i] = null;
+        }
+        EnemyToHit = null;
     }
 }

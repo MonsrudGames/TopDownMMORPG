@@ -58,8 +58,6 @@ public class CameraMovement : MonoBehaviour
             {
                 PPC.assetsPPU += (int)(MouseWheel * PPC.assetsPPU);
             }
-
-            Debug.Log(" " + MouseWheel);
         }
     }
 }
