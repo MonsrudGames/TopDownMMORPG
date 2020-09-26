@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class SwordScript : MonoBehaviour
 {
+
+    PlayerScript Player;
+
+    void Start()
+    {
+        Player = GetComponentInParent<PlayerScript>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponentInParent<PlayerEquipment>().EnemyToHit = collision.gameObject;
+        collision.gameObject.GetComponent<EnemyScript>().GetHit(Player.gameObject);
     }
 }

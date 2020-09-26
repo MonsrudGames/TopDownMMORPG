@@ -125,7 +125,7 @@ public class EnemyScript : MonoBehaviour
         if (ForceDir.y < 0)
             ForceDir = new Vector2(ForceDir.x, -1);
 
-        ForceDir *= 50f;
+        ForceDir *= 100f;
 
         rb.AddForce(ForceDir, ForceMode2D.Impulse);
     }

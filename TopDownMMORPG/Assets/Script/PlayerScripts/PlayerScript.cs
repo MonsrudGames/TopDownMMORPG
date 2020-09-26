@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
 
     public PlayerStats _stats;
 
+    public GameObject ActiveWeapon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,11 @@ public class PlayerScript : MonoBehaviour
         if (_stats.PlayerHealth <= 0f)
         {
             Die();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Mouse0) && !GetComponent<PlayerAnimController>().IsAttacking)
+        {
+            StartCoroutine(Attack());
         }
     }
 
@@ -44,6 +51,15 @@ public class PlayerScript : MonoBehaviour
     {
         Debug.Log("Dead!");
         _stats.Dead = true;
+    }
+
+    IEnumerator Attack()
+    {
+        GetComponent<PlayerAnimController>().Attacking(true);
+        ActiveWeapon.GetComponent<BoxCollider2D>().enabled = true;
+        yield return new WaitForSeconds(GetComponent<PlayerAnimController>().Attack.length);
+        ActiveWeapon.GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<PlayerAnimController>().Attacking(false);
     }
 
     IEnumerator ChangePlayerColor()

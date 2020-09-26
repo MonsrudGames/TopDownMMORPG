@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
 
     GameObject Player;
     public GameObject PlayerInventory;
-    public InventoryManager IM;
+    //public InventoryManager IM;
 
     [Header("UI")]
     public Slider PlayerHealthUISlider;
@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        IM = GetComponent<InventoryManager>();
+        //IM = GetComponent<InventoryManager>();
     }
 
     private void Update()

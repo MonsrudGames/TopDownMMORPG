@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 691844697442589856}
   - component: {fileID: 6675695004007616309}
   - component: {fileID: 4435606770041296714}
-  - component: {fileID: 7440823640962455466}
   - component: {fileID: 519977158}
   - component: {fileID: 1070686437}
   - component: {fileID: 519977162}
@@ -52,7 +51,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 691844697442589858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: d294e6b24d4303047b39e9d69f2dead7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -69,77 +67,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 691844697442589858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 968ae7891d2bc7d409f045ce85539934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 6675695004007616309}
---- !u!114 &7440823640962455466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691844697442589858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: f2f446a86506c1a47824771948783867, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Equipments:
-  - {fileID: 4474958251395246975}
-  - {fileID: 5613136025554766653}
-  - {fileID: 0}
-  ActiveEquipment: {fileID: 4474958251395246975}
-  ActiveWeapon: 1
-  ArrowToSpawn: {fileID: 7287653659517311711, guid: 9440b6909701d8c4783c2ebf0d72c9d7,
-    type: 3}
-  Arrows:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  IsAttacking: 0
-  CanAttack: 1
-  EnemyToHit: {fileID: 0}
-  EnemiesThatWasHit:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &519977158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,12 +80,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 691844697442589858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 487b74cc34f6467478ef66d4032c3ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 8
-  CanMove: 1
 --- !u!114 &1070686437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +93,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 691844697442589858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 00374c27555da5e42a971d9826e136fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -322,6 +250,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -333,6 +263,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -404,6 +335,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -415,6 +348,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -474,7 +408,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4474958251395246975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: bf2c24ac74c4d754da5ad843195b53f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -523,6 +456,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -534,6 +469,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -603,6 +539,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -614,6 +552,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -9,7 +9,8 @@ public class PlayerAnimController : MonoBehaviour
 
     public AnimationClip Idle, Walk, Attack;
 
-    bool IsAttacking;
+    [SerializeField]
+    public bool IsAttacking;
     
     public void Walking(bool state)
     {

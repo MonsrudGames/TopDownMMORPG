@@ -22,13 +22,13 @@ public class Item : MonoBehaviour
     public GameObject OriginalItemObj;
 
     GameObject Player;
-    InventoryManager IM;
+    //InventoryManager IM;
 
     private void Start()
     {
         OriginalItemObj = this.gameObject;
         Player = GameObject.FindGameObjectWithTag("Player");
-        IM = GameObject.Find("GameManager").GetComponent<InventoryManager>();
+        //IM = GameObject.Find("GameManager").GetComponent<InventoryManager>();
     }
 
     float f_pickupTimer;
@@ -48,7 +48,7 @@ public class Item : MonoBehaviour
 
         if (Vector2.Distance(this.transform.position, Player.transform.position) <= 1f && f_pickupTimer <= 0f && IsPickupable)
         {
-            IM.AddItemToInv(this.gameObject, this.GetComponent<Item>());
+            //IM.AddItemToInv(this.gameObject, this.GetComponent<Item>());
         }
     }
 
