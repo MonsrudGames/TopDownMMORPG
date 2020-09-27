@@ -974,30 +974,24 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-  - first: {x: 20, y: -7, z: 0}
+  - first: {x: 23, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 169
-      m_TileSpriteIndex: 169
+      m_TileIndex: 109
+      m_TileSpriteIndex: 109
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 21, y: -7, z: 0}
+  - first: {x: 24, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 170
-      m_TileSpriteIndex: 170
+      m_TileIndex: 111
+      m_TileSpriteIndex: 111
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
->>>>>>> Stashed changes
-=======
->>>>>>> 24a3ec7... v4.4
   - first: {x: -2, y: -6, z: 0}
     second:
       serializedVersion: 2
@@ -4244,15 +4238,7 @@ Tilemap:
     m_Data: {fileID: -8300132809796122921, guid: 26c690060e7f9eb4d9c4168bb096cb60,
       type: 3}
   m_TileMatrixArray:
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  - m_RefCount: 294
-=======
   - m_RefCount: 296
->>>>>>> Stashed changes
-=======
-  - m_RefCount: 294
->>>>>>> 24a3ec7... v4.4
     m_Data:
       e00: 1
       e01: 0
@@ -4271,15 +4257,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  - m_RefCount: 294
-=======
   - m_RefCount: 296
->>>>>>> Stashed changes
-=======
-  - m_RefCount: 294
->>>>>>> 24a3ec7... v4.4
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: -1.1519847e-17, g: -1.1519847e-17, b: -1.1519847e-17, a: -1.1519847e-17}
@@ -4427,15 +4405,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
-<<<<<<< HEAD
-<<<<<<< Updated upstream
---- !u!114 &4790074329593216524
-=======
---- !u!114 &3949285032291253856
->>>>>>> Stashed changes
-=======
---- !u!114 &4790074329593216524
->>>>>>> 24a3ec7... v4.4
+--- !u!114 &3667629760224244881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
