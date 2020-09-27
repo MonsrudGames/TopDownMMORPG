@@ -13,8 +13,8 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         _stats = GetComponent<PlayerStats>();
-        _stats.PlayerHealth = 100f;
-        _stats.PlayerMana = 100f;
+        _stats.PlayerHealth = 10f;
+        _stats.PlayerMana = 10f;
     }
 
     // Update is called once per frame

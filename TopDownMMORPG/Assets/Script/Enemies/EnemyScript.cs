@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyScript : MonoBehaviour
 {
 
     [Header("EnemyStats")]
-    public float Health = 100;
+    public float Health;
+    public float MaxHealth;
+    public int EnemyLevel = 1;
     [Range(1, 30)]
     public float DetectionRange;
     public float MovementSpeed;
@@ -21,14 +24,23 @@ public class EnemyScript : MonoBehaviour
     Rigidbody2D rb;
     GameObject Player;
     [HideInInspector]
-    public GameObject _HealthSlider;
+    public GameObject _enemyUI;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
 
+        MaxHealth = 1 * EnemyLevel;
+        Damage = 1 * EnemyLevel;
+
+        Health = MaxHealth;
+
         CanDie = true;
+        if(_enemyUI != null)
+        {
+            _enemyUI.GetComponentInChildren<Slider>().maxValue = MaxHealth;
+        }
     }
 
     private void Update()
@@ -38,11 +50,13 @@ public class EnemyScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_HealthSlider != null)
+        if(_enemyUI != null)
         {
-            if (_HealthSlider.GetComponent<Slider>() != null)
+            if (_enemyUI.GetComponent<Slider>() != null)
             {
-                _HealthSlider.GetComponent<Slider>().SetValueWithoutNotify(Health);
+                _enemyUI.GetComponentInChildren<TMP_Text>().SetText("Lv. " + EnemyLevel);
+                _enemyUI.GetComponentInChildren<Slider>().maxValue = MaxHealth;
+                _enemyUI.GetComponentInChildren<Slider>().SetValueWithoutNotify(Health);
             }
 
             if (Vector3.Distance(Player.transform.position, this.transform.position) <= DetectionRange && Vector3.Distance(Player.transform.position, this.transform.position) >= 1.3f)
@@ -63,7 +77,7 @@ public class EnemyScript : MonoBehaviour
 
         if(Health <= 0f && CanDie)
         {
-            GameObject.Destroy(_HealthSlider.gameObject);
+            GameObject.Destroy(_enemyUI.gameObject);
             GameObject.Destroy(this.gameObject);
         }
     }
@@ -100,7 +114,7 @@ public class EnemyScript : MonoBehaviour
 
     void TakeHealth()
     {
-        Health -= 34f;
+        Health -= 1f;
     }
 
     IEnumerator DamageColorChange()
