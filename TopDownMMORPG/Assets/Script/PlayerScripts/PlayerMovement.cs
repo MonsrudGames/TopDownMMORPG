@@ -6,26 +6,43 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    InputMaster Input;
+
     public float Speed;
 
     Rigidbody2D rb;
 
     PlayerManager PM;
 
-    private void Start()
+    void Awake()
     {
+        Input = new InputMaster();
+
         PM = GameObject.Find("GameManager").GetComponent<PlayerManager>();
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void OnEnable()
+    {
+        Input.Player.Enable();
+    }
+    void OnDisable()
+    {
+        Input.Player.Disable();
     }
 
     void Update()
     {
         //find the Input values
+        /*
         float XMov = Input.GetAxisRaw("Horizontal");
         float YMov = Input.GetAxisRaw("Vertical");
+        */
+
+        Vector2 Mov = Input.Player.Movement.ReadValue<Vector2>();
 
         //convert the input values to a vector for movement
-        Vector2 Mov = new Vector2(XMov, YMov).normalized;
+        Mov = new Vector2(Mov.x, Mov.y).normalized;
 
         //fix the speed for the Movement vector
         Mov *= Speed * Time.deltaTime;

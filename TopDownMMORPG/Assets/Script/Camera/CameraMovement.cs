@@ -9,6 +9,8 @@ public class CameraMovement : MonoBehaviour
 
     PixelPerfectCamera PPC;
 
+    bool FollowPlayer;
+
     PlayerManager PM;
 
     private void Start()
@@ -27,6 +29,7 @@ public class CameraMovement : MonoBehaviour
             //Move Camera
             if (Input.GetMouseButtonDown(1))
             {
+                FollowPlayer = false;
                 DragOrigin = LastFrameDragOrigin = Input.mousePosition;
             }
             if (Input.GetMouseButton(1))
@@ -39,6 +42,12 @@ public class CameraMovement : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.V))
+            {
+                FollowPlayer = !FollowPlayer;
+                this.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, -10f);
+            }
+
+            if(FollowPlayer)
             {
                 this.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, -10f);
             }

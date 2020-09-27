@@ -23,8 +23,7 @@ public class AnimatedLights : MonoBehaviour
 
     private void Start()
     {
-            IsDay = false;
-           Masks = GetComponentsInChildren<SpriteMask>();
+        Masks = GetComponentsInChildren<SpriteMask>();
         foreach (SpriteMask mask in Masks)
         {
             if(mask.name == "InnerMask")

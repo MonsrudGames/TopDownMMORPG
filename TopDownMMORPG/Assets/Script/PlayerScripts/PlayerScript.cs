@@ -5,16 +5,34 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
+    InputMaster Input;
+
     public PlayerStats _stats;
 
     public GameObject ActiveWeapon;
 
+    bool MouseDown = false;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Input = new InputMaster();
+
+        Input.Player.Attack.performed += ctx => MouseDown = true;
+        Input.Player.Attack.canceled += ctx => MouseDown = false;
+
         _stats = GetComponent<PlayerStats>();
         _stats.PlayerHealth = 10f;
         _stats.PlayerMana = 10f;
+    }
+
+    void OnEnable()
+    {
+        Input.Player.Enable();
+    }
+    void OnDisable()
+    {
+        Input.Player.Disable();
     }
 
     // Update is called once per frame
@@ -24,8 +42,7 @@ public class PlayerScript : MonoBehaviour
         {
             Die();
         }
-
-        if(Input.GetKeyDown(KeyCode.Mouse0) && !GetComponent<PlayerAnimController>().IsAttacking)
+        if(MouseDown && !GetComponent<PlayerAnimController>().IsAttacking)
         {
             StartCoroutine(Attack());
         }

@@ -15,11 +15,11 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-
+        /*
         BlackMap = GameObject.Find("BlackMap").GetComponent<Tilemap>();
-         DarkMap = GameObject.Find("DarkMap").GetComponent<Tilemap>();
-         BlurredMap = GameObject.Find("BlurredMap").GetComponent<Tilemap>();
-         GroundMap = GameObject.Find("GroundMap").GetComponent<Tilemap>();
+        DarkMap = GameObject.Find("DarkMap").GetComponent<Tilemap>();
+        BlurredMap = GameObject.Find("BlurredMap").GetComponent<Tilemap>();
+        GroundMap = GameObject.Find("GroundMap").GetComponent<Tilemap>();
 
         BlackMap.origin = BlurredMap.origin = GroundMap.origin;
         BlackMap.size = BlurredMap.size = GroundMap.size;
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         {
             BlurredMap.SetTile(p, Tiles[2]);
         }
+        */
 
     }
 
