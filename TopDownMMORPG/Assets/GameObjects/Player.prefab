@@ -55,8 +55,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BonusArmorHealth: 0
-  PlayerHealth: 100
-  PlayerMana: 100
+  PlayerLevel: 10
+  PlayerHealth: 10
+  PlayerMana: 10
   Dead: 0
 --- !u!114 &4435606770041296714
 MonoBehaviour:
@@ -71,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 6675695004007616309}
+  ActiveWeapon: {fileID: 4474958251395246975}
 --- !u!114 &519977158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487b74cc34f6467478ef66d4032c3ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
+  Speed: 15
 --- !u!114 &1070686437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +102,7 @@ MonoBehaviour:
   Idle: {fileID: 7400000, guid: c36d6dca9f05a62458f59bcb82abfb87, type: 2}
   Walk: {fileID: 7400000, guid: dda1525695a990e40ba2caccad48acc8, type: 2}
   Attack: {fileID: 7400000, guid: 73c3fbbfb68c9cf439d2de1d2ae02b49, type: 2}
+  IsAttacking: 0
 --- !u!50 &519977162
 Rigidbody2D:
   serializedVersion: 4
