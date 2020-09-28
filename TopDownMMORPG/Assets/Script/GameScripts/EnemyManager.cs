@@ -10,13 +10,24 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject EnemyUI;
 
+    EnemyZones _enemyZones;
+    GameObject[] _enemyGroups;
+
     public GameObject[] Enemies;
     public GameObject[] EnemyUIs;
 
     void Start()
     {
-        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        _enemyZones = GameObject.Find("EnemyZones").GetComponent<EnemyZones>();
         _canvas = GameObject.Find("EnemyCanvas");
+
+        StartCoroutine(Spawn());
+        
+    }
+
+    void FixedUpdate()
+    {
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         for (int i = 0; i < Enemies.Length; i++)
         {
             if(EnemyUIs[i] == null)
@@ -25,7 +36,6 @@ public class EnemyManager : MonoBehaviour
                 EnemyUIs[i] = CurrentEnemyUI;
             }
         }
-        
     }
     
     void Update()
@@ -47,5 +57,30 @@ public class EnemyManager : MonoBehaviour
             {
             }
         }
+    }
+
+    void SpawnEnemies()
+    {
+        StartCoroutine(Spawn());
+    }
+
+    IEnumerator Spawn()
+    {
+        foreach (zone _zone in _enemyZones._zones)
+        {
+            if(_zone.TimeSinceLastEnemyRespawn  >= _zone.RespawnRate && _zone.EnemiesInZone < _zone.MaxEnemiesInZone)
+            {
+                GameObject Enemygroup = Instantiate(_zone.EnemyGroupTypes[Random.Range(0, _zone.EnemyGroupTypes.Length)], _zone.zoneCenterPos + new Vector3(Random.Range(-(_zone.ZoneSize.x / 2), _zone.ZoneSize.x / 2), Random.Range(-(_zone.ZoneSize.y / 2), _zone.ZoneSize.y / 2)),Quaternion.Euler(Vector3.zero));
+                
+                foreach (EnemyScript enemy in Enemygroup.GetComponentsInChildren<EnemyScript>())
+                {
+                    enemy.zoneOfOrigin = _zone;
+                }
+                
+                _zone.EnemiesInZone += Enemygroup.GetComponentsInChildren<EnemyScript>().Length;
+            }
+        }
+        yield return new WaitForSeconds(3f);
+        SpawnEnemies();
     }
 }

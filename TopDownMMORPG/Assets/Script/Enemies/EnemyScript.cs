@@ -26,6 +26,8 @@ public class EnemyScript : MonoBehaviour
     [HideInInspector]
     public GameObject _enemyUI;
 
+    public zone zoneOfOrigin;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

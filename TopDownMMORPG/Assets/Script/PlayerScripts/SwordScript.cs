@@ -14,6 +14,9 @@ public class SwordScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<EnemyScript>().GetHit(Player.gameObject);
+        if(collision.tag == "Enemy" || collision.tag == "boss")
+        {
+            collision.gameObject.GetComponent<EnemyScript>().GetHit(Player.gameObject);
+        }
     }
 }
